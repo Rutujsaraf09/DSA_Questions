@@ -1,0 +1,36 @@
+
+
+//User function Template for Java
+class Solution
+{
+   
+    String reverseEqn(String s)
+    {
+        // your code here
+        Stack<String>st = new Stack<>();
+        StringBuilder ans = new StringBuilder();
+            int n = s.length();
+
+            int i = 0;
+            while (i<n){
+                String aux = "";
+                if (s.charAt(i) >= '0' && s.charAt(i) <= '9'){
+                    while(i<n && (s.charAt(i) >= '0' && s.charAt(i)<= '9')){
+                        aux += s.charAt(i);
+                        i++;
+                    }
+                    st.push(aux);
+                }
+                else{
+                    aux += s.charAt(i);
+                    st.push(aux);
+                    i++;
+                }
+            }
+            while(!st.empty()){
+                ans.append(st.peek());
+                st.pop();
+            }
+            return ans.toString();
+    }
+}
