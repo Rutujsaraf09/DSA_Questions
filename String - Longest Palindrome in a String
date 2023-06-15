@@ -1,0 +1,42 @@
+
+//User function Template for Java
+ class Solution{
+    public static String longestPalin(String s) {
+        int n = s.length();
+        String longestPalindrome = "";
+
+        for (int i = 0; i < n; i++) {
+            // Find odd-length palindromes
+            String oddPalindrome = expandFromCenter(s, i, i);
+            if (oddPalindrome.length() > longestPalindrome.length()) {
+                longestPalindrome = oddPalindrome;
+            }
+
+            // Find even-length palindromes
+            String evenPalindrome = expandFromCenter(s, i, i + 1);
+            if (evenPalindrome.length() > longestPalindrome.length()) {
+                longestPalindrome = evenPalindrome;
+            }
+        }
+
+        return longestPalindrome;
+    }
+
+    private static String expandFromCenter(String s, int left, int right) {
+        int n = s.length();
+        while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        // Return the palindrome substring
+        return s.substring(left + 1, right);
+    }
+
+    public static void main(String[] args) {
+        String s1 = "aaaabbaa";
+        System.out.println(longestPalin(s1)); // Output: aabbaa
+
+        String s2 = "abc";
+        System.out.println(longestPalin(s2)); // Output: a
+    }
+}
