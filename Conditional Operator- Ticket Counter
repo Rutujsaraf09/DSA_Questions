@@ -1,0 +1,25 @@
+
+//User function Template for Java
+class Solution {
+    public int distributeTicket(int N, int k) {
+        int s = 1;
+        int e = N;
+        
+        while (s != e) {
+            if (s + k < e) {
+                s = s + k;
+            } else {
+                return e;
+            }
+            
+            if (e - k > s) {
+                e = e - k;
+            } else {
+                return s;
+            }
+        }
+        
+        return s;
+    }
+}
+
