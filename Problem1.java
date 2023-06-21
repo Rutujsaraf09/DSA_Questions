@@ -12,12 +12,12 @@ class GFG {
             
             int n = Integer.parseInt(S[0]);
 
-            Solution ob = new Solution();
+           sample  ob = new sample ();
             System.out.println(ob.sumOfNaturals(n));
         }
     }
 }
-class Solution {
+class sample  {
     public int sumOfNaturals(int n) {
         // code here
         int sum = 0;
