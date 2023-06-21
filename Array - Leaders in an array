@@ -1,0 +1,33 @@
+
+
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+        // Your code here
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        int currLeader = arr[n-1];
+
+        list.add(currLeader);
+
+        
+
+        for(int i = n-2;i>=0 ; i--){
+
+            if(arr[i] >= currLeader){
+
+                currLeader = arr[i];
+
+                list.add(currLeader);
+
+            }
+
+        }
+
+        
+
+        Collections.reverse(list);
+
+        return list;
+    }
+}

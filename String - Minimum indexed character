@@ -1,0 +1,20 @@
+class Solution
+{
+    //Function to find the minimum indexed character.
+    public static int minIndexChar(String str, String patt)
+    {
+        // Your code here
+ String ans = "";
+        
+        int strr = str.length();
+        int pattt = patt.length();
+        for(int i=0; i<strr; i++){
+              ans = ans + (str.charAt(i));
+              if(patt.contains(ans)){
+                  return i;
+              }
+              ans = "";
+        }
+        return -1;
+    }
+}
