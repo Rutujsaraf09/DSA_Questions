@@ -30,3 +30,19 @@ Expected Auxiliary Space: O(1)
 
 Constraints:
 0 <= n <= 107
+
+class Solution {
+    static int sumOfNaturals(int n) {
+        // code here
+        int sum = 0;
+        int i = 1;
+        while(i <= n){
+            sum = sum + i;
+            if (sum>1000000007)
+                sum=sum%1000000007;
+            i++;
+        }
+        
+        return sum;
+    }
+};
