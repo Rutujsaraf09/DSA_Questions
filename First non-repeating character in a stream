@@ -1,0 +1,17 @@
+Queue<Character> q= new LinkedList<>();
+        HashMap<Character,Integer> map = new HashMap<>();
+        StringBuilder ans = new StringBuilder();
+        for(int i=0;i<A.length();i++){
+            map.put(A.charAt(i),map.getOrDefault(A.charAt(i),0)+1);
+            q.add(A.charAt(i));
+            while (!q.isEmpty() && map.get(q.peek()) > 1) {
+                q.poll();
+            }
+
+            if (q.isEmpty()) {
+                ans.append("#");
+            } else {
+                ans.append(q.peek());
+            }
+        }
+        return  String.valueOf(ans);
