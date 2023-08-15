@@ -1,0 +1,27 @@
+class Solution {
+
+    public static int maxOnes(int a[], int n) {
+        // Your code goes here
+        
+        int count = 0, one = 0, max = 0;
+        
+        for(int i=0; i<n; i++){
+            if(a[i]==0){
+                count ++;
+            }
+            else{
+                count--;
+                one++;
+            }
+            if(count<0){
+                count =0;
+            }
+            if(count > max){
+            max = count;
+        }
+        }
+        
+        
+        return one + max;
+    }
+}
